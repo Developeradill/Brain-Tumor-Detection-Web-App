@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            animation: gradientAnimation 10s infinite alternate;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="file"]:hover {
+            background-color: #e0e0e0;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p.normal {
+            background-color: #2ecc71;
+        }
+
+        p.tumor {
+            background-color: #e74c3c;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        #membersList {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #showMembersButton {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #showMembersButton:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <script>
+        function playVoiceMessage(message) {
+            var synth = window.speechSynthesis;
+            var utterThis = new SpeechSynthesisUtterance(message);
+            synth.speak(utterThis);
+        }
+
+        var prediction = '{{ prediction_text }}';
+        if (prediction.includes('Normal')) {
+            playVoiceMessage('The result is Normal.');
+            updateResult('Normal', '#2ecc71');
+        } else if (prediction.includes('Tumor')) {
+            playVoiceMessage('The result is Tumor.');
+            updateResult('Tumor', '#e74c3c');
+        }
+
+        function updateResult(result, backgroundColor) {
+            setTimeout(function() {
+                var resultElement = document.getElementById('result');
+                resultElement.innerHTML = result;
+                resultElement.style.backgroundColor = backgroundColor;
+            }, 3000); // 3000 milliseconds (3 seconds) delay
+        }
+
+        function showMembers() {
+            var membersList = document.getElementById('membersList');
+            membersList.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Brain Tumor Detection</h1>
+    <form method="POST" action="/predict" enctype="multipart/form-data" onsubmit="playVoiceMessage('Detecting tumor, please wait.');">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Detect Tumor">
+    </form>
+    <p id="result"></p>
+
+    <button id="showMembersButton" onclick="showMembers()">Show Group Members</button>
+    <div id="membersList">
+        <p>Group Members:</p>
+        <p>Adil Khan (Leader)</p>
+        <p>Jaweria Farooq</p>
+        <p>Faisal Khan</p>
+    </div>
+</body>
+</html>
