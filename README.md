@@ -27,10 +27,15 @@ This project is a deep learning–based web application that detects brain tumor
 ## Project Structure
 
 brain-tumor-detection-web-app/
+
 ├── app.py
+
 ├── model/
+
 ├── templates/
+
 ├── uploads/
+
 ├── requirements.txt
 
 
