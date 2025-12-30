@@ -1,57 +1,184 @@
-# Brain Tumor Detection Web Application
+## 📌 Overview
 
-## Introduction
-This project is a deep learning–based web application that detects brain tumors from MRI images using a convolutional neural network (CNN).
+This project is an **AI-based web application** that detects **brain tumors from MRI images** using a **Convolutional Neural Network (CNN)**.
+The system allows users to upload MRI images and instantly receive detection results through a simple and user-friendly web interface.
 
-## Features
-- MRI image upload
-- Tumor / Normal classification
-- Flask-based backend
-- Clean web interface
-- Voice feedback for results
+This project focuses on **model deployment, web integration, and real-time usability**, making it suitable for **research, academic, and demonstration purposes**.
 
-## Technologies Used
-- Python
-- TensorFlow / Keras
-- Flask
-- HTML, CSS, JavaScript
+---
 
-## Model Information
-- CNN-based model
-- Input size: 224 × 224
-- Dataset: Public MRI dataset (Kaggle)
+## 🚀 Features
 
-> Dataset source: Kaggle  
-> Model adaptation, deployment, and web integration done by me.
+* Upload MRI images through a web interface
+* Automatic **Tumor / Normal** classification
+* Deep learning–based CNN model
+* Flask backend for model serving
+* Clean and responsive UI
+* Optional **voice feedback** for prediction results
 
-## Project Structure
+---
 
+## 🛠 Technologies Used
+
+* **Python**
+* **TensorFlow / Keras**
+* **Flask**
+* **HTML, CSS, JavaScript**
+* **OpenCV**
+* **NumPy**
+
+---
+
+## 🧠 Model Information
+
+* Model Type: CNN (Convolutional Neural Network)
+* Input Image Size: **224 × 224**
+* Dataset Source: **Public MRI Brain Tumor Dataset (Kaggle)**
+* Model Training: Dataset preprocessing and training inspired by Kaggle resources
+* Model Deployment & Web Integration: **Done by me**
+
+> ⚠️ This project emphasizes **deployment and application development**, not dataset ownership.
+
+---
+
+## 📁 Project Structure
+
+```
 brain-tumor-detection-web-app/
-
-├── app.py
-
+│
+├── app.py                  # Main Flask application
 ├── model/
-
+│   └── brain_tumor.h5       # Trained deep learning model
+│
 ├── templates/
+│   └── index.html           # Web UI
+│
+├── static/
+│   └── style.css            # Styling files
+│
+├── uploads/                 # Uploaded MRI images
+│
+├── requirements.txt         # Python dependencies
+├── README.md
+└── LICENSE
+```
 
-├── uploads/
+---
 
-├── requirements.txt
+## ⚙️ Installation Guide (Step-by-Step)
 
+### 1️⃣ Clone the Repository
 
-## How to Run
-1. Install Python
-2. Install dependencies:
-3. Run the app:
-4. Open browser:
+```bash
+git clone https://github.com/Developeradill/Brain-Tumor-Detection-Web-App.git
+cd Brain-Tumor-Detection-Web-App
+```
+
+---
+
+### 2️⃣ Create Virtual Environment (Recommended)
+
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / Mac**
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+### 3️⃣ Install Required Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4️⃣ Place the Model File
+
+Ensure the trained model file is placed correctly:
+
+```
+model/brain_tumor.h5
+```
+
+⚠️ If your model name is different, update it inside `app.py`.
+
+---
+
+### 5️⃣ Run the Application
+
+```bash
+python app.py
+```
+
+---
+
+### 6️⃣ Open in Browser
+
+```
 http://127.0.0.1:5000/
+```
 
+---
 
-## Future Improvements
-- Multi-class tumor detection
-- Accuracy improvement with fine-tuning
-- Cloud deployment
+## 🧪 How to Use
 
-## Author
-Adil Khan  
+1. Open the web application
+2. Upload an MRI image
+3. Click **Predict**
+4. View tumor detection result
+5. (Optional) Listen to voice output
+
+---
+
+## 📌 Requirements.txt Example
+
+```
+flask
+tensorflow
+keras
+opencv-python
+numpy
+pillow
+```
+
+---
+
+## 🔮 Future Improvements
+
+* Multi-class tumor classification
+* Improved accuracy using fine-tuning
+* Cloud deployment (AWS / Azure)
+* Mobile-friendly UI
+* Doctor-oriented reporting system
+
+---
+
+## 👨‍💻 Author
+
+**Adil Khan**
 Computer Systems Engineer
+AI & Web Application Developer
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+⭐ *If you find this project helpful, feel free to star the repository!*
