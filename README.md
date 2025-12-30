@@ -170,7 +170,9 @@ pillow
 ## 👨‍💻 Author
 
 **Adil Khan**
+
 Computer Systems Engineer
+
 AI & Web Application Developer
 
 ---
